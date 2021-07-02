@@ -1,0 +1,38 @@
+.product{
+    display: flex;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.product-img{
+    border: 5px solid brown;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+}
+.product-name{
+    margin: 10px;
+    padding: 10px;
+}
+.product-title{
+    text-decoration: none;
+    color: black;
+}
+.product-name h3:hover{
+    color: brown;
+    cursor: pointer;
+}
+.product-name button{
+    background-color: rgb(201, 58, 58);
+    color: black;
+    width: 150px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.product-name button:hover{
+    color: whitesmoke;
+}

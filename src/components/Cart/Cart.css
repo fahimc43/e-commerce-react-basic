@@ -1,0 +1,27 @@
+.cart-summery{
+    border: 1px solid brown;
+    position: sticky;
+    top: 0;
+    /* margin-top: 40px; */
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 100%;
+    background-color: rgb(201, 58, 58);
+    color: white;
+}
+
+.review-button{
+    background-color: rgb(201, 58, 58);
+    color: black;
+    width: 150px;
+    height: 30px;
+    border: 3px solid white;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.review-button:hover{
+    color: white;
+}
