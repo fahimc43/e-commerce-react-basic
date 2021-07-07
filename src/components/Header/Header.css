@@ -38,6 +38,11 @@
 .header-right{
     display: flex;
 }
-.header-right a{
+.link{
     text-decoration: none;
+}
+
+.sign-out{
+    background-color: rgb(201, 58, 58);
+    border: 0;
 }

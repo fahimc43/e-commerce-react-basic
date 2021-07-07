@@ -11,10 +11,20 @@ import {
   Link
 } from "react-router-dom";
 import Inventory from './components/Inventory/Inventory';
+import Shipment from './components/Shipment/Shipment';
+import Login from './components/Login/Login';
+import { createContext } from 'react';
+import { useState } from 'react';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+
+export const UserContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
+  console.log(loggedInUser);
   return (
-    <div>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <p>loggedIn: {loggedInUser.email}</p>
       <Router>
         <Header></Header>
         <Switch>
@@ -24,8 +34,14 @@ function App() {
           <Route path="/review">
             <Review></Review>
           </Route>
-          <Route path="/inventory">
+          <PrivateRoute path="/inventory">
             <Inventory></Inventory>
+          </PrivateRoute>
+          <PrivateRoute path="/shipment">
+            <Shipment></Shipment>
+          </PrivateRoute>
+          <Route path="/login">
+            <Login></Login>
           </Route>
           <Route exact path="/">
             <Shop></Shop>
@@ -38,9 +54,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-
-
-    </div>
+    </UserContext.Provider>
   );
 }
 

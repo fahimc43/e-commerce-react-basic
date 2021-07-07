@@ -5,7 +5,8 @@ import fakeData from '../../fakeData';
 import { getDatabaseCart, processOrder, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import Cart from '../Cart/Cart';
-import happyImage from '../../images/giphy.gif';
+// import happyImage from '../../images/giphy.gif';
+import { useHistory } from 'react-router-dom';
 
 const Review = () => {
     const [cart, setCart] = useState([]);
@@ -26,17 +27,20 @@ const Review = () => {
         setCart(cartProducts);
     }, []);
 
-    const [placedOrder, setPlacedOrder ] = useState(false)
-    const handlePlacedOrder = () => {
-        setCart([])
-        setPlacedOrder(true)
-        processOrder()
+    // const [placedOrder, setPlacedOrder ] = useState(false)
+    let history = useHistory();
+    const handleProceedCheckOut = () => {
+        history.push("/shipment")
+
+        // setCart([])
+        // setPlacedOrder(true)
+        // processOrder()
     }
 
-    let thankYou;
-    if (placedOrder) {
-        thankYou = <img src={happyImage} alt="" />
-    }
+    // let thankYou;
+    // if (placedOrder) {
+    //     thankYou = <img src={happyImage} alt="" />
+    // }
     return (
         <div className="shop-container">
             <div className="product-container">
@@ -47,10 +51,10 @@ const Review = () => {
                         product={pd}
                     ></ReviewItem>)
                 }
-                {thankYou}
+                {/* {thankYou} */}
             </div>
             <div className="cart-container">
-                <Cart cart={cart}><button onClick={handlePlacedOrder} className="review-button">Order Placed</button></Cart>
+                <Cart cart={cart}><button onClick={handleProceedCheckOut} className="review-button">Checkout</button></Cart>
             </div>
         </div>
 
